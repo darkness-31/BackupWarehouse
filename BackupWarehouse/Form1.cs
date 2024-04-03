@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BackupWarehouse.Models.Utils;
 
 namespace BackupWarehouse
 {
@@ -19,8 +20,13 @@ namespace BackupWarehouse
 
         private async void Form1_Load(object sender, EventArgs e)
         {
-            var auto = new View.Usercontrols.Autorization();
-            
+            var auto = new View.Usercontrols.AutorizationUserControl();
+            auto.Location = auto.CenterWindow(this);
+            Controls.Add(auto);
+            if (await auto.Show())
+            {
+                
+            }
         }
     }
 }

@@ -4,11 +4,11 @@ using System.Windows.Forms;
 
 namespace BackupWarehouse.View.Usercontrols
 {
-    public partial class Autorization : UserControl
+    public partial class AutorizationUserControl : UserControl
     {
         private TaskCompletionSource<bool> _taskComplateAutorization = new TaskCompletionSource<bool>();
         
-        public Autorization()
+        public AutorizationUserControl()
         {
             InitializeComponent();
         }

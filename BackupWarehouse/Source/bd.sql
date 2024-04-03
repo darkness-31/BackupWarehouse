@@ -12,7 +12,8 @@ CREATE TABLE entity
 );
 CREATE TABLE product
 (
-    product_id TEXT PRIMARY KEY CHECK(product_id != ''),
+  product_id TEXT PRIMARY KEY CHECK(product_id != ''),
+  name TEXT NOT NULL,
   e_status INTEGER NOT NULL,
   acceptance DATETIME NOT NULL DEFAULT current_timestamp,
   departure DATETIME,

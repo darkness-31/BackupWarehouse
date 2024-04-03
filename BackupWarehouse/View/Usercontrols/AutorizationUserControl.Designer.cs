@@ -2,7 +2,7 @@ using System.ComponentModel;
 
 namespace BackupWarehouse.View.Usercontrols
 {
-    partial class Autorization
+    partial class AutorizationUserControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -197,7 +197,7 @@ namespace BackupWarehouse.View.Usercontrols
             this.Controls.Add(this.LinkLabelLosePassword);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Autorization";
+            this.Name = "AutorizationUserControl";
             this.Size = new System.Drawing.Size(324, 199);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
