@@ -1,6 +1,6 @@
-﻿namespace BackupWarehouse
+﻿namespace BackupWarehouse.View.Window
 {
-    partial class Form1
+    partial class FormCreateProduct
     {
         /// <summary>
         /// Required designer variable.
@@ -17,7 +17,6 @@
             {
                 components.Dispose();
             }
-
             base.Dispose(disposing);
         }
 
@@ -29,21 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // Form1
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(28, 35);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 0;
+            // 
+            // FormCreateProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(660, 450);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
-            this.Text = "Склад";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.ClientSize = new System.Drawing.Size(478, 284);
+            this.Controls.Add(this.textBox1);
+            this.Name = "FormCreateProduct";
+            this.Text = "Создать поступаемый продукт";
             this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

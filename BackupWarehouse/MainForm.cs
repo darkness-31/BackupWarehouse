@@ -11,15 +11,17 @@ using BackupWarehouse.Models.Utils;
 
 namespace BackupWarehouse
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
 
         private async void Form1_Load(object sender, EventArgs e)
         {
+            SQLite.Open();
+
             var auto = new View.Usercontrols.AutorizationUserControl();
             auto.Location = auto.CenterWindow(this);
             Controls.Add(auto);
@@ -27,6 +29,11 @@ namespace BackupWarehouse
             {
                 
             }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SQLite.Close();
         }
     }
 }

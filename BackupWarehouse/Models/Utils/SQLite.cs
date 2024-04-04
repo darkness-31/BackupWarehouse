@@ -9,8 +9,7 @@ namespace BackupWarehouse.Models.Utils
 {
     public static class SQLite
     {
-        private static string _connectionString =
-            $"Data Source={Path.Combine(Environment.CurrentDirectory, "Source", "backup.warehouse")}";
+        private static string _connectionString = $"Data Source={Path.Combine(Environment.CurrentDirectory, "Source", "backup.warehouse")}";
 
         private static SqliteConnection DataBase = new SqliteConnection(_connectionString);
 
@@ -45,5 +44,17 @@ namespace BackupWarehouse.Models.Utils
             return dt;
         }
 
+        internal static void SQLNoneQuery(this string sql)
+        {
+            new SqliteCommand(sql, DataBase).ExecuteNonQuery();
+        }
+
+        public static T ConvertFromDbVal<T>(this object obj)
+        {
+            if (obj == null || obj == DBNull.Value)
+                return default;
+
+            return (T)obj;
+        }
     }
 }

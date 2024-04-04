@@ -35,17 +35,19 @@ namespace BackupWarehouse.View.Usercontrols
             this.label2 = new System.Windows.Forms.Label();
             this.ButtonAutorization = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.TextBoxPasswordAutorization = new System.Windows.Forms.TextBox();
-            this.TextBoxLoginAutorization = new System.Windows.Forms.TextBox();
+            this.TextBoxAutorizationPassword = new System.Windows.Forms.TextBox();
+            this.TextBoxAutorizationLogin = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.ButtonRegistration = new System.Windows.Forms.Button();
+            this.TextBoxRegistrationPasswordAgain = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.TextBoxRegistrationPassword = new System.Windows.Forms.TextBox();
+            this.TextBoxRegistrationLogin = new System.Windows.Forms.TextBox();
             this.LinkLabelLosePassword = new System.Windows.Forms.LinkLabel();
+            this.TextBoxName = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -55,8 +57,8 @@ namespace BackupWarehouse.View.Usercontrols
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.ButtonAutorization);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.TextBoxPasswordAutorization);
-            this.groupBox1.Controls.Add(this.TextBoxLoginAutorization);
+            this.groupBox1.Controls.Add(this.TextBoxAutorizationPassword);
+            this.groupBox1.Controls.Add(this.TextBoxAutorizationLogin);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(155, 150);
@@ -92,55 +94,58 @@ namespace BackupWarehouse.View.Usercontrols
             this.label1.Text = "Логин";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // TextBoxPasswordAutorization
+            // TextBoxAutorizationPassword
             // 
-            this.TextBoxPasswordAutorization.Location = new System.Drawing.Point(15, 86);
-            this.TextBoxPasswordAutorization.Name = "TextBoxPasswordAutorization";
-            this.TextBoxPasswordAutorization.Size = new System.Drawing.Size(129, 20);
-            this.TextBoxPasswordAutorization.TabIndex = 0;
+            this.TextBoxAutorizationPassword.Location = new System.Drawing.Point(15, 86);
+            this.TextBoxAutorizationPassword.Name = "TextBoxAutorizationPassword";
+            this.TextBoxAutorizationPassword.Size = new System.Drawing.Size(129, 20);
+            this.TextBoxAutorizationPassword.TabIndex = 0;
             // 
-            // TextBoxLoginAutorization
+            // TextBoxAutorizationLogin
             // 
-            this.TextBoxLoginAutorization.Location = new System.Drawing.Point(15, 44);
-            this.TextBoxLoginAutorization.Name = "TextBoxLoginAutorization";
-            this.TextBoxLoginAutorization.Size = new System.Drawing.Size(129, 20);
-            this.TextBoxLoginAutorization.TabIndex = 0;
+            this.TextBoxAutorizationLogin.Location = new System.Drawing.Point(15, 44);
+            this.TextBoxAutorizationLogin.Name = "TextBoxAutorizationLogin";
+            this.TextBoxAutorizationLogin.Size = new System.Drawing.Size(129, 20);
+            this.TextBoxAutorizationLogin.TabIndex = 0;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.ButtonRegistration);
+            this.groupBox2.Controls.Add(this.TextBoxRegistrationPasswordAgain);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.textBox5);
-            this.groupBox2.Controls.Add(this.textBox4);
+            this.groupBox2.Controls.Add(this.TextBoxRegistrationPassword);
+            this.groupBox2.Controls.Add(this.TextBoxName);
+            this.groupBox2.Controls.Add(this.TextBoxRegistrationLogin);
             this.groupBox2.Location = new System.Drawing.Point(164, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(155, 188);
+            this.groupBox2.Size = new System.Drawing.Size(155, 245);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Регистрация";
             // 
-            // button2
+            // ButtonRegistration
             // 
-            this.button2.Location = new System.Drawing.Point(15, 152);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(129, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Зарегистрироваться";
-            this.button2.UseVisualStyleBackColor = true;
+            this.ButtonRegistration.Location = new System.Drawing.Point(15, 197);
+            this.ButtonRegistration.Name = "ButtonRegistration";
+            this.ButtonRegistration.Size = new System.Drawing.Size(129, 23);
+            this.ButtonRegistration.TabIndex = 1;
+            this.ButtonRegistration.Text = "Зарегистрироваться";
+            this.ButtonRegistration.UseVisualStyleBackColor = true;
+            this.ButtonRegistration.Click += new System.EventHandler(this.ButtonRegistration_Click);
             // 
-            // textBox3
+            // TextBoxRegistrationPasswordAgain
             // 
-            this.textBox3.Location = new System.Drawing.Point(15, 126);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(129, 20);
-            this.textBox3.TabIndex = 0;
+            this.TextBoxRegistrationPasswordAgain.Location = new System.Drawing.Point(15, 171);
+            this.TextBoxRegistrationPasswordAgain.Name = "TextBoxRegistrationPasswordAgain";
+            this.TextBoxRegistrationPasswordAgain.Size = new System.Drawing.Size(129, 20);
+            this.TextBoxRegistrationPasswordAgain.TabIndex = 0;
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(15, 107);
+            this.label5.Location = new System.Drawing.Point(15, 152);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(129, 15);
             this.label5.TabIndex = 2;
@@ -149,7 +154,7 @@ namespace BackupWarehouse.View.Usercontrols
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(15, 66);
+            this.label4.Location = new System.Drawing.Point(15, 111);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(129, 15);
             this.label4.TabIndex = 2;
@@ -158,26 +163,26 @@ namespace BackupWarehouse.View.Usercontrols
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(15, 25);
+            this.label3.Location = new System.Drawing.Point(15, 70);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(129, 15);
             this.label3.TabIndex = 2;
             this.label3.Text = "Логин";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox5
+            // TextBoxRegistrationPassword
             // 
-            this.textBox5.Location = new System.Drawing.Point(15, 84);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(129, 20);
-            this.textBox5.TabIndex = 0;
+            this.TextBoxRegistrationPassword.Location = new System.Drawing.Point(15, 129);
+            this.TextBoxRegistrationPassword.Name = "TextBoxRegistrationPassword";
+            this.TextBoxRegistrationPassword.Size = new System.Drawing.Size(129, 20);
+            this.TextBoxRegistrationPassword.TabIndex = 0;
             // 
-            // textBox4
+            // TextBoxRegistrationLogin
             // 
-            this.textBox4.Location = new System.Drawing.Point(15, 43);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(129, 20);
-            this.textBox4.TabIndex = 0;
+            this.TextBoxRegistrationLogin.Location = new System.Drawing.Point(15, 88);
+            this.TextBoxRegistrationLogin.Name = "TextBoxRegistrationLogin";
+            this.TextBoxRegistrationLogin.Size = new System.Drawing.Size(129, 20);
+            this.TextBoxRegistrationLogin.TabIndex = 0;
             // 
             // LinkLabelLosePassword
             // 
@@ -188,8 +193,25 @@ namespace BackupWarehouse.View.Usercontrols
             this.LinkLabelLosePassword.TabStop = true;
             this.LinkLabelLosePassword.Text = "Забыли пароль?";
             this.LinkLabelLosePassword.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.LinkLabelLosePassword.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelLosePassword_LinkClicked);
             // 
-            // Autorization
+            // TextBoxName
+            // 
+            this.TextBoxName.Location = new System.Drawing.Point(15, 44);
+            this.TextBoxName.Name = "TextBoxName";
+            this.TextBoxName.Size = new System.Drawing.Size(129, 20);
+            this.TextBoxName.TabIndex = 0;
+            // 
+            // label6
+            // 
+            this.label6.Location = new System.Drawing.Point(15, 26);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(129, 15);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "ФИО";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AutorizationUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -198,12 +220,13 @@ namespace BackupWarehouse.View.Usercontrols
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "AutorizationUserControl";
-            this.Size = new System.Drawing.Size(324, 199);
+            this.Size = new System.Drawing.Size(324, 232);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
+
         }
 
         private System.Windows.Forms.LinkLabel LinkLabelLosePassword;
@@ -216,15 +239,18 @@ namespace BackupWarehouse.View.Usercontrols
         private System.Windows.Forms.Label label2;
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox TextBoxLoginAutorization;
-        private System.Windows.Forms.TextBox TextBoxPasswordAutorization;
+        private System.Windows.Forms.TextBox TextBoxAutorizationLogin;
+        private System.Windows.Forms.TextBox TextBoxAutorizationPassword;
         private System.Windows.Forms.Button ButtonAutorization;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Button ButtonRegistration;
+        private System.Windows.Forms.TextBox TextBoxRegistrationPasswordAgain;
+        private System.Windows.Forms.TextBox TextBoxRegistrationLogin;
+        private System.Windows.Forms.TextBox TextBoxRegistrationPassword;
 
         #endregion
+
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox TextBoxName;
     }
 }
