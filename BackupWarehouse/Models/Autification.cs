@@ -21,7 +21,12 @@ namespace BackupWarehouse.Models
                          WHERE login = '{login}' AND
                          	   password = '{password}'";
             var rows = sql.SQLQueryAsDataTable().Rows;
-            if (rows.Count == 0) AutorizationSuccessfullyEvent?.Invoke("Неверный логин или пароль");
+            if (rows.Count == 0)
+            {
+                AutorizationErrorfullyEvent?.Invoke("Неверный логин или пароль");
+                return;
+            }
+            
             var guidAccount = rows[0]["account_id"].ConvertFromDbVal<Guid?>();
             if (guidAccount.HasValue)
             {

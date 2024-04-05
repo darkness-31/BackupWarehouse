@@ -18,14 +18,15 @@ namespace BackupWarehouse.Models
         {
             tag,
             status,
-            access
+            access,
+            system
         }
 
         internal static Entity Create(eGroup group, string meaning)
         {
             var sql = new StringBuilder($@"INSERT INTO entity (entity_id, code, name, meaning, created_by)
                                            VALUES ('{Guid.NewGuid()}',(SELECT COUNT(*) FROM entity WHERE name = '{group}'),'{group}','{meaning}','{Autification.CurrentAccoutn.Id}')
-                                           RETURNING entity_id, 
+                                           RETURNING entity_id AS ""id"", 
                                                      code");
             var row = sql.ToString().SQLQueryAsDataTable().Rows[0];
             return new Entity

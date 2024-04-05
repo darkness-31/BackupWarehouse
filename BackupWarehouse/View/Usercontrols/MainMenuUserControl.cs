@@ -1,4 +1,5 @@
 ﻿using BackupWarehouse.Models;
+using BackupWarehouse.View.Window;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Forms;
@@ -13,12 +14,14 @@ namespace BackupWarehouse.View.Usercontrols
         {
             InitializeComponent();
             Render();
+
+            FormCreateProduct.UpdateProductEvent += () => Render();
         }
         
 
         private void ButtonCreateProduct_Click(object sender, System.EventArgs e)
         {
-
+            new FormCreateProduct().Show();
         }
 
         private void ButtonSearch_Click(object sender, System.EventArgs e)

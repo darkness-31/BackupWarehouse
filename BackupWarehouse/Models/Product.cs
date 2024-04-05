@@ -1,7 +1,9 @@
 ﻿using BackupWarehouse.Models.Utils;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
+using System.Data.Entity;
 using System.Text;
 
 namespace BackupWarehouse.Models
@@ -11,8 +13,7 @@ namespace BackupWarehouse.Models
         internal Guid Id { get; set; }
         internal string Name { get; set; }
         internal Entity Status { get; set; }
-        internal ObservableCollection<Entity> Tags { get; set; }
-            = new ObservableCollection<Entity>();
+        internal ObservableCollection<Entity> Tags { get; set; } = new ObservableCollection<Entity>();
         internal DateTime Acceptance { get; set; }
         internal DateTime? Departure { get; set; }
         internal DateTime CreatedAt { get; set; }
@@ -33,7 +34,7 @@ namespace BackupWarehouse.Models
                                                   modified_at
                                            FROM product
                                            WHERE delete_status_code = 0");
-            if (string.IsNullOrEmpty(search))
+            if (!string.IsNullOrEmpty(search))
             {
                 sql.Append($" AND LOWER(name) LIKE '%{search.ToLower()}%'");
             }
@@ -53,7 +54,7 @@ namespace BackupWarehouse.Models
                     CreatedAt = rows[i]["created_at"].ConvertFromDbVal<DateTime>(),
                     CreatedBy = Account.Get(rows[i]["created_by"].ConvertFromDbVal<Guid?>()),
                     ModifiedAt = rows[i]["modified_at"].ConvertFromDbVal<DateTime?>(),
-                    ModifiedBy = Account.Get(rows[i].ConvertFromDbVal<Guid?>())
+                    ModifiedBy = Account.Get(rows[i]["modified_by"].ConvertFromDbVal<Guid?>())
                 };
             };
 
@@ -85,6 +86,26 @@ namespace BackupWarehouse.Models
             }
 
             return Tags;
+        }
+
+        internal static void Create(Product product)
+        {
+            var sql = $@"INSERT INTO product (product_id, name, e_status, acceptance, departure, created_by, created_at, modified_by, modified_at)
+                         VALUES ('{product.Id}','{product.Name}',{product.Status.Code},'{product.Acceptance}','{product.Departure}','{product.CreatedBy.Id}','{product.CreatedAt}','{product.ModifiedBy?.Id ?? null}','{product.ModifiedAt}')";
+            sql.SQLNoneQuery();
+
+            if (product.Tags.Count > 0)
+            {
+                var sqlBuilder = new StringBuilder($@"INSERT INTO product_tag (product_id, e_tag, created_by, created_at, modified_by, modified_at) VALUES ");
+                var values = new ObservableCollection<string>();
+                foreach (Entity tag in product.Tags)
+                {
+                    values.Add($"('{product.Id}','{tag.Id}','{product.CreatedBy.Id}','{product.CreatedAt}','{product.ModifiedBy?.Id ?? null}','{product.ModifiedAt}')");
+                }
+                sqlBuilder.Append(string.Join(", ", values));
+
+                sqlBuilder.ToString().SQLNoneQuery();
+            }
         }
     }
 }

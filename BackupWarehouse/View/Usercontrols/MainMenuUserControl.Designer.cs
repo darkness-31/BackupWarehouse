@@ -33,19 +33,19 @@ namespace BackupWarehouse.View.Usercontrols
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.TabPageProducts = new System.Windows.Forms.TabPage();
-            this.FlowLayoutPanelProducts = new System.Windows.Forms.FlowLayoutPanel();
-            this.ButtonCreateProduct = new System.Windows.Forms.Button();
-            this.TabPageUsers = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.ButtonCreateProduct = new System.Windows.Forms.Button();
             this.TextBoxSearch = new System.Windows.Forms.TextBox();
             this.ButtonSearch = new System.Windows.Forms.Button();
             this.ButtonClear = new System.Windows.Forms.Button();
+            this.FlowLayoutPanelProducts = new System.Windows.Forms.FlowLayoutPanel();
+            this.TabPageUsers = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.TabPageProducts.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.TabPageUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -70,49 +70,6 @@ namespace BackupWarehouse.View.Usercontrols
             this.TabPageProducts.Text = "Товары";
             this.TabPageProducts.UseVisualStyleBackColor = true;
             // 
-            // FlowLayoutPanelProducts
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.FlowLayoutPanelProducts, 4);
-            this.FlowLayoutPanelProducts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FlowLayoutPanelProducts.Location = new System.Drawing.Point(3, 33);
-            this.FlowLayoutPanelProducts.Name = "FlowLayoutPanelProducts";
-            this.FlowLayoutPanelProducts.Size = new System.Drawing.Size(616, 330);
-            this.FlowLayoutPanelProducts.TabIndex = 1;
-            // 
-            // ButtonCreateProduct
-            // 
-            this.ButtonCreateProduct.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ButtonCreateProduct.Location = new System.Drawing.Point(3, 3);
-            this.ButtonCreateProduct.Name = "ButtonCreateProduct";
-            this.ButtonCreateProduct.Size = new System.Drawing.Size(71, 24);
-            this.ButtonCreateProduct.TabIndex = 0;
-            this.ButtonCreateProduct.Text = "Добавить";
-            this.ButtonCreateProduct.UseVisualStyleBackColor = true;
-            this.ButtonCreateProduct.Click += new System.EventHandler(this.ButtonCreateProduct_Click);
-            // 
-            // TabPageUsers
-            // 
-            this.TabPageUsers.Controls.Add(this.dataGridView1);
-            this.TabPageUsers.Location = new System.Drawing.Point(4, 22);
-            this.TabPageUsers.Name = "TabPageUsers";
-            this.TabPageUsers.Padding = new System.Windows.Forms.Padding(3);
-            this.TabPageUsers.Size = new System.Drawing.Size(628, 372);
-            this.TabPageUsers.TabIndex = 1;
-            this.TabPageUsers.Text = "Пользователи";
-            this.TabPageUsers.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(622, 366);
-            this.dataGridView1.TabIndex = 0;
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 4;
@@ -134,6 +91,17 @@ namespace BackupWarehouse.View.Usercontrols
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(622, 366);
             this.tableLayoutPanel1.TabIndex = 2;
+            // 
+            // ButtonCreateProduct
+            // 
+            this.ButtonCreateProduct.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ButtonCreateProduct.Location = new System.Drawing.Point(3, 3);
+            this.ButtonCreateProduct.Name = "ButtonCreateProduct";
+            this.ButtonCreateProduct.Size = new System.Drawing.Size(71, 24);
+            this.ButtonCreateProduct.TabIndex = 0;
+            this.ButtonCreateProduct.Text = "Добавить";
+            this.ButtonCreateProduct.UseVisualStyleBackColor = true;
+            this.ButtonCreateProduct.Click += new System.EventHandler(this.ButtonCreateProduct_Click);
             // 
             // TextBoxSearch
             // 
@@ -165,6 +133,38 @@ namespace BackupWarehouse.View.Usercontrols
             this.ButtonClear.UseVisualStyleBackColor = true;
             this.ButtonClear.Click += new System.EventHandler(this.ButtonClear_Click);
             // 
+            // FlowLayoutPanelProducts
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.FlowLayoutPanelProducts, 4);
+            this.FlowLayoutPanelProducts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FlowLayoutPanelProducts.Location = new System.Drawing.Point(3, 33);
+            this.FlowLayoutPanelProducts.Name = "FlowLayoutPanelProducts";
+            this.FlowLayoutPanelProducts.Size = new System.Drawing.Size(616, 330);
+            this.FlowLayoutPanelProducts.TabIndex = 1;
+            // 
+            // TabPageUsers
+            // 
+            this.TabPageUsers.Controls.Add(this.dataGridView1);
+            this.TabPageUsers.Location = new System.Drawing.Point(4, 22);
+            this.TabPageUsers.Name = "TabPageUsers";
+            this.TabPageUsers.Padding = new System.Windows.Forms.Padding(3);
+            this.TabPageUsers.Size = new System.Drawing.Size(628, 372);
+            this.TabPageUsers.TabIndex = 1;
+            this.TabPageUsers.Text = "Пользователи";
+            this.TabPageUsers.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(622, 366);
+            this.dataGridView1.TabIndex = 0;
+            // 
             // MainMenuUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -174,10 +174,10 @@ namespace BackupWarehouse.View.Usercontrols
             this.Size = new System.Drawing.Size(636, 398);
             this.tabControl1.ResumeLayout(false);
             this.TabPageProducts.ResumeLayout(false);
-            this.TabPageUsers.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.TabPageUsers.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }

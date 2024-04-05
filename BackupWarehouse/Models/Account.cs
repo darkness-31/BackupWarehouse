@@ -57,7 +57,7 @@ namespace BackupWarehouse.Models
 
         internal static bool IsExistLogin(string login)
         {
-            var sql = $@"SELECT COUNT(*)
+            var sql = $@"SELECT COUNT(*) AS ""count""
                          FROM account
                          WHERE login = '{login}'";
             return sql.SQLQueryAsDataTable().Rows[0]["count"].ConvertFromDbVal<int>() > 0;

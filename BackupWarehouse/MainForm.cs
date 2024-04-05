@@ -27,7 +27,11 @@ namespace BackupWarehouse
             Controls.Add(auto);
             if (await auto.Show())
             {
-                
+                Controls.Remove(auto);
+                Controls.Add(new View.Usercontrols.MainMenuUserControl()
+                {
+                    Dock = DockStyle.Fill
+                });
             }
         }
 
