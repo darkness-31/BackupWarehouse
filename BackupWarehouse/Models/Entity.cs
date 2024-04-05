@@ -2,6 +2,7 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Data;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -24,6 +25,8 @@ namespace BackupWarehouse.Models
 
         internal static Entity Create(eGroup group, string meaning)
         {
+            if (GetCollection(group).Any(x => x.Meaning == meaning)) return null;
+
             var sql = new StringBuilder($@"INSERT INTO entity (entity_id, code, name, meaning, created_by)
                                            VALUES ('{Guid.NewGuid()}',(SELECT COUNT(*) FROM entity WHERE name = '{group}'),'{group}','{meaning}','{Autification.CurrentAccoutn.Id}')
                                            RETURNING entity_id AS ""id"", 

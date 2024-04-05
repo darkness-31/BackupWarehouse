@@ -56,6 +56,18 @@ namespace BackupWarehouse.Models.Utils
                         {
                             temp = reader.GetValue(i);
                         }
+                        if (Guid.TryParse(temp.ToString(), out var tmp))
+                        {
+                            row[i] = TypeDescriptor.GetConverter(tp).ConvertFrom(temp);
+                            continue;
+                        }
+                        if (string.IsNullOrEmpty(temp.ToString()))
+                        {
+                            row[i] = DBNull.Value;
+                            continue;
+
+                        }
+
                         row[i] = Convert.ChangeType(temp, tp);
                     }
                     dt.Rows.Add(row);
@@ -71,7 +83,7 @@ namespace BackupWarehouse.Models.Utils
 
         public static T ConvertFromDbVal<T>(this object obj)
         {   
-            if (obj == null || obj == DBNull.Value || obj is null)
+            if (obj == null || obj == DBNull.Value || obj is null || string.IsNullOrEmpty(obj.ToString()))
                 return default;
 
             if (Guid.TryParse(obj.ToString(), out var a))
@@ -82,7 +94,6 @@ namespace BackupWarehouse.Models.Utils
             {
                 return (T)TypeDescriptor.GetConverter(typeof(T)).ConvertFromString(obj.ToString());
             }
-
             return (T)Convert.ChangeType(obj, typeof(T));
         }
     }

@@ -47,10 +47,14 @@ namespace BackupWarehouse.Models
                 return;
             }
 
-            if (Account.IsExistLogin(login) && login.Length > 1 
-                && login.Any(Char.IsDigit)) 
+            if (Account.IsExistLogin(login) && login.Any(Char.IsDigit)) 
             {
                 RegistrationErrorfullyEvent?.Invoke("Такой логин уже существует");
+                return;
+            }
+            if (login.Length < 4)
+            {
+                RegistrationErrorfullyEvent?.Invoke("Логин не может иметь меньше 4 символов");
                 return;
             }
 

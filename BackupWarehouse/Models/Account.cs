@@ -1,6 +1,7 @@
 ﻿using BackupWarehouse.Models.Utils;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,32 @@ namespace BackupWarehouse.Models
         internal string Login { get; set; }
         internal Entity Access { get; set; }
 
+        internal delegate void AccountUpdateHandler();
+        internal static event AccountUpdateHandler AccountUpdateEvent;
+
+        internal static ObservableCollection<Account> GetCollection()
+        {
+            var sql = $@"SELECT account_id,
+                         	    name,
+                         	    login,
+                         	    e_access
+                         FROM account
+                         WHERE delete_status_code = 0";
+            var rows = sql.SQLQueryAsDataTable().Rows;
+            if (rows.Count == 0) return new ObservableCollection<Account>();
+            var tmp = new ObservableCollection<Account>();
+            foreach (DataRow row in rows)
+            {
+                tmp.Add(new Account
+                {
+                    Id = row["account_id"].ConvertFromDbVal<Guid>(),
+                    Name = row["name"].ConvertFromDbVal<string>(),
+                    Login = row["login"].ConvertFromDbVal<string>(),
+                    Access = Entity.Get(Entity.eGroup.access, row["e_access"].ConvertFromDbVal<int>())
+                });
+            }
+            return tmp;
+        }
 
         internal static Account Get(Guid? v)
         {
@@ -46,6 +73,7 @@ namespace BackupWarehouse.Models
                          RETURNING account_id";
             var row = sql.SQLQueryAsDataTable().Rows[0];
 
+            AccountUpdateEvent?.Invoke();
             return new Account
             {
                 Id = row["account_id"].ConvertFromDbVal<Guid>(),
@@ -61,6 +89,23 @@ namespace BackupWarehouse.Models
                          FROM account
                          WHERE login = '{login}'";
             return sql.SQLQueryAsDataTable().Rows[0]["count"].ConvertFromDbVal<int>() > 0;
+        }
+
+        internal void Delete()
+        {
+            var sql = $@"UPDATE account  
+                         SET delete_status_code = 1
+                         WHERE account_id  = '{Id}'";
+            sql.SQLNoneQuery();
+            AccountUpdateEvent?.Invoke();
+        }
+
+        internal void RecoveryPassword(string password)
+        {
+            var sql = $@"UPDATE account  
+                         SET password = '{password}'
+                         WHERE account_id  = '{Id}'";
+            sql.SQLNoneQuery();
         }
     }
 }

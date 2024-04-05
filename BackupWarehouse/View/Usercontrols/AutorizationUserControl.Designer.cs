@@ -97,6 +97,7 @@ namespace BackupWarehouse.View.Usercontrols
             // TextBoxAutorizationPassword
             // 
             this.TextBoxAutorizationPassword.Location = new System.Drawing.Point(15, 86);
+            this.TextBoxAutorizationPassword.MaxLength = 32;
             this.TextBoxAutorizationPassword.Name = "TextBoxAutorizationPassword";
             this.TextBoxAutorizationPassword.PasswordChar = '*';
             this.TextBoxAutorizationPassword.Size = new System.Drawing.Size(129, 20);
@@ -123,7 +124,7 @@ namespace BackupWarehouse.View.Usercontrols
             this.groupBox2.Location = new System.Drawing.Point(164, 3);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(155, 245);
-            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Регистрация";
             // 
@@ -132,7 +133,7 @@ namespace BackupWarehouse.View.Usercontrols
             this.ButtonRegistration.Location = new System.Drawing.Point(15, 197);
             this.ButtonRegistration.Name = "ButtonRegistration";
             this.ButtonRegistration.Size = new System.Drawing.Size(129, 23);
-            this.ButtonRegistration.TabIndex = 8;
+            this.ButtonRegistration.TabIndex = 4;
             this.ButtonRegistration.Text = "Зарегистрироваться";
             this.ButtonRegistration.UseVisualStyleBackColor = true;
             this.ButtonRegistration.Click += new System.EventHandler(this.ButtonRegistration_Click);
@@ -140,10 +141,11 @@ namespace BackupWarehouse.View.Usercontrols
             // TextBoxRegistrationPasswordAgain
             // 
             this.TextBoxRegistrationPasswordAgain.Location = new System.Drawing.Point(15, 171);
+            this.TextBoxRegistrationPasswordAgain.MaxLength = 32;
             this.TextBoxRegistrationPasswordAgain.Name = "TextBoxRegistrationPasswordAgain";
             this.TextBoxRegistrationPasswordAgain.PasswordChar = '*';
             this.TextBoxRegistrationPasswordAgain.Size = new System.Drawing.Size(129, 20);
-            this.TextBoxRegistrationPasswordAgain.TabIndex = 7;
+            this.TextBoxRegistrationPasswordAgain.TabIndex = 3;
             // 
             // label5
             // 
@@ -184,24 +186,25 @@ namespace BackupWarehouse.View.Usercontrols
             // TextBoxRegistrationPassword
             // 
             this.TextBoxRegistrationPassword.Location = new System.Drawing.Point(15, 129);
+            this.TextBoxRegistrationPassword.MaxLength = 32;
             this.TextBoxRegistrationPassword.Name = "TextBoxRegistrationPassword";
             this.TextBoxRegistrationPassword.PasswordChar = '*';
             this.TextBoxRegistrationPassword.Size = new System.Drawing.Size(129, 20);
-            this.TextBoxRegistrationPassword.TabIndex = 6;
+            this.TextBoxRegistrationPassword.TabIndex = 2;
             // 
             // TextBoxRegistrationName
             // 
             this.TextBoxRegistrationName.Location = new System.Drawing.Point(15, 44);
             this.TextBoxRegistrationName.Name = "TextBoxRegistrationName";
             this.TextBoxRegistrationName.Size = new System.Drawing.Size(129, 20);
-            this.TextBoxRegistrationName.TabIndex = 4;
+            this.TextBoxRegistrationName.TabIndex = 0;
             // 
             // TextBoxRegistrationLogin
             // 
             this.TextBoxRegistrationLogin.Location = new System.Drawing.Point(15, 88);
             this.TextBoxRegistrationLogin.Name = "TextBoxRegistrationLogin";
             this.TextBoxRegistrationLogin.Size = new System.Drawing.Size(129, 20);
-            this.TextBoxRegistrationLogin.TabIndex = 5;
+            this.TextBoxRegistrationLogin.TabIndex = 1;
             // 
             // LinkLabelLosePassword
             // 

@@ -52,7 +52,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject />
+    <StartupObject>BackupWarehouse.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>home.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -74,7 +77,9 @@
     <Reference Include="SQLitePCLRaw.provider.dynamic_cdecl, Version=2.1.6.2060, Culture=neutral, PublicKeyToken=b68184102cba0b3b, processorArchitecture=MSIL">
       <HintPath>..\packages\SQLitePCLRaw.provider.dynamic_cdecl.2.1.6\lib\netstandard2.0\SQLitePCLRaw.provider.dynamic_cdecl.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
@@ -148,11 +153,23 @@
     <Compile Include="View\Window\FormCreateProduct.Designer.cs">
       <DependentUpon>FormCreateProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Window\FormCreateUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Window\FormCreateUser.Designer.cs">
+      <DependentUpon>FormCreateUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Window\FormTags.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\Window\FormTags.Designer.cs">
       <DependentUpon>FormTags.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Window\FormUserRecoveryPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Window\FormUserRecoveryPassword.Designer.cs">
+      <DependentUpon>FormUserRecoveryPassword.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -179,8 +196,14 @@
     <EmbeddedResource Include="View\Window\FormCreateProduct.resx">
       <DependentUpon>FormCreateProduct.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Window\FormCreateUser.resx">
+      <DependentUpon>FormCreateUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Window\FormTags.resx">
       <DependentUpon>FormTags.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Window\FormUserRecoveryPassword.resx">
+      <DependentUpon>FormUserRecoveryPassword.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -197,6 +220,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="home.ico" />
     <Content Include="Source\backup.warehouse">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -208,6 +232,14 @@
     <Content Include="Source\icons\home-480.png" />
     <Content Include="Source\icons\home-80.png" />
     <Content Include="Source\icons\home.ico" />
+    <Content Include="Source\icons\password reset.ico" />
+    <Content Include="Source\icons\password-reset-48.png" />
+    <Content Include="Source\icons\tags.ico" />
+    <Content Include="Source\icons\tags-48.png" />
+    <Content Include="Source\icons\users.ico" />
+    <Content Include="Source\icons\users-48.png" />
+    <Content Include="Source\icons\product.ico" />
+    <Content Include="Source\icons\product-48.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">

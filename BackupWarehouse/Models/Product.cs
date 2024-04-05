@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.Entity;
+using System.Runtime.CompilerServices;
 using System.Text;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace BackupWarehouse.Models
 {
@@ -20,6 +22,9 @@ namespace BackupWarehouse.Models
         internal Account CreatedBy { get; set; }
         internal DateTime? ModifiedAt { get; set; }
         internal Account ModifiedBy { get; set; }
+
+        internal delegate void ProductUpdateHandler();
+        internal static event ProductUpdateHandler ProductUpdateEvent;
 
         internal static Product[] GetCollection(string search = "")
         {
@@ -56,6 +61,7 @@ namespace BackupWarehouse.Models
                     ModifiedAt = rows[i]["modified_at"].ConvertFromDbVal<DateTime?>(),
                     ModifiedBy = Account.Get(rows[i]["modified_by"].ConvertFromDbVal<Guid?>())
                 };
+                products[i].GetTags();
             };
 
             return products;
@@ -106,6 +112,52 @@ namespace BackupWarehouse.Models
 
                 sqlBuilder.ToString().SQLNoneQuery();
             }
+        }
+
+        internal void LinkTag(Entity ent)
+        {
+            var sql = $@"SELECT COUNT(*) AS ""count""
+                         FROM product_tag
+                         WHERE delete_status_code = 1 AND 
+                         	   product_id = '{Id}' AND 
+                         	   e_tag = '{ent.Id}'";
+            var countDelTag = sql.SQLQueryAsDataTable().Rows[0]["count"].ConvertFromDbVal<int>();
+            
+            if (countDelTag == 1)
+            {
+                sql = $@"UPDATE product_tag 
+                         SET delete_status_code = 0
+                         WHERE product_id = '{Id}' AND 
+                               e_tag = '{ent.Id}'";
+                sql.SQLNoneQuery();
+            }
+            else
+            {
+                sql = $@"INSERT INTO product_tag (product_id, e_tag, created_by, created_at, modified_by, modified_at) 
+                         VALUES ('{Id}','{ent.Id}','{CreatedBy.Id}','{CreatedAt}','{ModifiedBy?.Id ?? null}','{ModifiedAt}')";
+                sql.SQLNoneQuery();
+            }
+
+            Tags.Add(ent);
+        }
+
+        internal void DeleteTag(Entity ent)
+        {
+            var sql = $@"UPDATE product_tag 
+                         SET delete_status_code = 1
+                         WHERE product_id = '{Id}' AND 
+                               e_tag = '{ent.Id}'";
+            sql.SQLNoneQuery();
+            Tags.Remove(ent);
+        }
+
+        internal void Delete()
+        {
+            var sql = $@"UPDATE product 
+                         SET delete_status_code = 1
+                         WHERE product_id = '{Id}'";
+            sql.SQLNoneQuery();
+            ProductUpdateEvent?.Invoke();
         }
     }
 }

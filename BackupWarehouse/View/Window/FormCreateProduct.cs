@@ -50,7 +50,7 @@ namespace BackupWarehouse.View.Window
         private async void ButtonAddTag_Click(object sender, EventArgs e)
         {
             var entity = await new FormTags().ShowEnt();
-            if (_product.Tags.Any(x => x.Id == entity.Id)) return;
+            if (_product.Tags.Any(x => x.Id == entity.Id) || entity == null) return;
             _product.Tags.Add(entity);
 
             Button but = new Button()
@@ -61,7 +61,8 @@ namespace BackupWarehouse.View.Window
 
             but.Click += (s, ev) =>
             {
-                FlowLayoutPanelTags.Controls.Remove((Button)s);
+                FlowLayoutPanelTags.Controls.Remove((Button)s); 
+                _product.Tags.Remove(_product.Tags.First(x => x.Meaning == ((Button)s).Text));
             };
 
             FlowLayoutPanelTags.Controls.Add(but);

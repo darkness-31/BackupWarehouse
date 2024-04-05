@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCreateProduct));
             this.TextBoxName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.MonthCalendarAcceptance = new System.Windows.Forms.MonthCalendar();
@@ -76,7 +77,7 @@
             this.MonthCalendarAcceptance.MaxSelectionCount = 1;
             this.MonthCalendarAcceptance.MinDate = new System.DateTime(2024, 4, 5, 0, 0, 0, 0);
             this.MonthCalendarAcceptance.Name = "MonthCalendarAcceptance";
-            this.MonthCalendarAcceptance.TabIndex = 3;
+            this.MonthCalendarAcceptance.TabIndex = 0;
             this.MonthCalendarAcceptance.TodayDate = new System.DateTime(2024, 4, 5, 0, 0, 0, 0);
             // 
             // DateTimePickerDeparture
@@ -101,17 +102,18 @@
             0});
             this.NumericUpDownDeparture.Name = "NumericUpDownDeparture";
             this.NumericUpDownDeparture.Size = new System.Drawing.Size(223, 20);
-            this.NumericUpDownDeparture.TabIndex = 6;
+            this.NumericUpDownDeparture.TabIndex = 3;
             // 
             // RadioButtonDepartureOff
             // 
             this.RadioButtonDepartureOff.AutoSize = true;
+            this.RadioButtonDepartureOff.Checked = true;
             this.RadioButtonDepartureOff.Location = new System.Drawing.Point(6, 19);
             this.RadioButtonDepartureOff.Name = "RadioButtonDepartureOff";
-            this.RadioButtonDepartureOff.Size = new System.Drawing.Size(44, 17);
-            this.RadioButtonDepartureOff.TabIndex = 7;
+            this.RadioButtonDepartureOff.Size = new System.Drawing.Size(107, 17);
+            this.RadioButtonDepartureOff.TabIndex = 0;
             this.RadioButtonDepartureOff.TabStop = true;
-            this.RadioButtonDepartureOff.Text = "Нет";
+            this.RadioButtonDepartureOff.Text = "Не согласовано";
             this.RadioButtonDepartureOff.UseVisualStyleBackColor = true;
             this.RadioButtonDepartureOff.CheckedChanged += new System.EventHandler(this.RadioButtonDeparture_CheckedChanged);
             // 
@@ -121,8 +123,7 @@
             this.RadioButtonDepartureCountDays.Location = new System.Drawing.Point(6, 42);
             this.RadioButtonDepartureCountDays.Name = "RadioButtonDepartureCountDays";
             this.RadioButtonDepartureCountDays.Size = new System.Drawing.Size(95, 17);
-            this.RadioButtonDepartureCountDays.TabIndex = 7;
-            this.RadioButtonDepartureCountDays.TabStop = true;
+            this.RadioButtonDepartureCountDays.TabIndex = 1;
             this.RadioButtonDepartureCountDays.Text = "Сколько дней";
             this.RadioButtonDepartureCountDays.UseVisualStyleBackColor = true;
             this.RadioButtonDepartureCountDays.CheckedChanged += new System.EventHandler(this.RadioButtonDeparture_CheckedChanged);
@@ -133,8 +134,7 @@
             this.RadioButtonDepartureDateTime.Location = new System.Drawing.Point(6, 65);
             this.RadioButtonDepartureDateTime.Name = "RadioButtonDepartureDateTime";
             this.RadioButtonDepartureDateTime.Size = new System.Drawing.Size(96, 17);
-            this.RadioButtonDepartureDateTime.TabIndex = 7;
-            this.RadioButtonDepartureDateTime.TabStop = true;
+            this.RadioButtonDepartureDateTime.TabIndex = 2;
             this.RadioButtonDepartureDateTime.Text = "Выбрать дней";
             this.RadioButtonDepartureDateTime.UseVisualStyleBackColor = true;
             this.RadioButtonDepartureDateTime.CheckedChanged += new System.EventHandler(this.RadioButtonDeparture_CheckedChanged);
@@ -149,7 +149,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 244);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(332, 95);
-            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Время отбытия";
             // 
@@ -159,7 +159,7 @@
             this.ButtonCreateProduct.Location = new System.Drawing.Point(12, 490);
             this.ButtonCreateProduct.Name = "ButtonCreateProduct";
             this.ButtonCreateProduct.Size = new System.Drawing.Size(332, 23);
-            this.ButtonCreateProduct.TabIndex = 9;
+            this.ButtonCreateProduct.TabIndex = 5;
             this.ButtonCreateProduct.Text = "Создать";
             this.ButtonCreateProduct.UseVisualStyleBackColor = true;
             this.ButtonCreateProduct.Click += new System.EventHandler(this.ButtonCreateProduct_Click);
@@ -191,7 +191,7 @@
             this.groupBox2.Location = new System.Drawing.Point(12, 395);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(332, 89);
-            this.groupBox2.TabIndex = 11;
+            this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Теги";
             // 
@@ -201,7 +201,7 @@
             this.groupBox3.Location = new System.Drawing.Point(12, 54);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(332, 182);
-            this.groupBox3.TabIndex = 12;
+            this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Время прибытия";
             // 
@@ -211,7 +211,7 @@
             this.ComboBoxStatusProduct.Location = new System.Drawing.Point(15, 361);
             this.ComboBoxStatusProduct.Name = "ComboBoxStatusProduct";
             this.ComboBoxStatusProduct.Size = new System.Drawing.Size(326, 21);
-            this.ComboBoxStatusProduct.TabIndex = 13;
+            this.ComboBoxStatusProduct.TabIndex = 3;
             // 
             // label2
             // 
@@ -235,7 +235,10 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TextBoxName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCreateProduct";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Создать поступаемый продукт";
             ((System.ComponentModel.ISupportInitialize)(this.NumericUpDownDeparture)).EndInit();
             this.groupBox1.ResumeLayout(false);

@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace BackupWarehouse.Models.Utils
@@ -9,6 +10,13 @@ namespace BackupWarehouse.Models.Utils
         {
             return new Point(mainControl.Width / 2 - addControl.Width / 2,
                              mainControl.Height / 2 - addControl.Height / 2);
+        }
+
+        public static string Reverse(this string s)
+        {
+            char[] charArray = s.ToCharArray();
+            Array.Reverse(charArray);
+            return new string(charArray);
         }
     }
 }
