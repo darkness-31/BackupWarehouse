@@ -51,15 +51,18 @@ CREATE TABLE product_tag
     FOREIGN KEY (product_id) REFERENCES product (product_id),
     FOREIGN KEY (e_tag) REFERENCES entity (entity_id)
 );
+  
+-- РЎСѓС‰РµСЃС‚РІР° РїРѕ-СѓРјРѕР»С‡Р°РЅРёСЋ
+INSERT INTO entity (entity_id, code, name, meaning, created_by)
+VALUES 
+  ('2ce78e96-3cc1-43bf-9f2f-88dfc3b774f3',0,'access','user','00000000-0000-0000-0000-000000000000'),
+  ('aa9fbd20-7023-448f-bb46-4d1fdd049b85',1,'access','admin','00000000-0000-0000-0000-000000000000'),
+  ('bf61b0eb-aea9-44db-8508-bea5232be5c6',	0,	'status',	'Р’ РЅР°Р»РёС‡РёРё',	    '00000000-0000-0000-0000-000000000000',	'2024-04-05 07:28:42'),
+  ('3babaf9a-60e2-4a07-a64d-7280354bb90d',	1,	'status',	'Р’ РїСѓС‚Рё',	        '00000000-0000-0000-0000-000000000000',	'2024-04-05 12:24:25'),
+  ('a81a3062-d01e-483a-9420-4cbecd1f7f3a',	2,	'status',	'Р’ РѕС‚РіСЂСѓР·РєРё',	    '00000000-0000-0000-0000-000000000000',	'2024-04-05 16:05:02'),
+  ('5ebeade7-2cf4-4595-8efe-44387278f057',	3,	'status',	'РќРµС‚ РІ РЅР°Р»РёС‡РёРё',	'00000000-0000-0000-0000-000000000000',	'2024-04-05 16:05:18')
 
--- Доступа пользователей
-INSERT INTO entity (entity_id, code, name, meaning, created_by)
-VALUES ('aa9fbd20-7023-448f-bb46-4d1fdd049b85',(SELECT COUNT(*) FROM entity WHERE name = 'access'),'access','admin','00000000-0000-0000-0000-000000000000')
-RETURNING entity_id, 
-          code
-          
--- Статус продуктов
-INSERT INTO entity (entity_id, code, name, meaning, created_by)
-VALUES ('bf61b0eb-aea9-44db-8508-bea5232be5c6',(SELECT COUNT(*) FROM entity WHERE name = 'status'),'status','В наличии','00000000-0000-0000-0000-000000000000')
-RETURNING entity_id, 
-          code
+  
+-- РђРєРєР°СѓРЅС‚ РїРѕ-СѓРјРѕР»С‡Р°РЅРёСЋ
+INSERT INTO account (account_id, name, login, password, e_access, created_by)
+VALUES ('d3914497-8399-45a7-8794-6bdfe70f5caa',	'РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ',	'Admin',	'Administrator',	1,	'00000000-0000-0000-0000-000000000000')
