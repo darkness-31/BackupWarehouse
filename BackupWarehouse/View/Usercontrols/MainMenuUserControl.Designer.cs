@@ -140,6 +140,7 @@ namespace BackupWarehouse.View.Usercontrols
             // 
             // FlowLayoutPanelProducts
             // 
+            this.FlowLayoutPanelProducts.AutoScroll = true;
             this.tableLayoutPanel1.SetColumnSpan(this.FlowLayoutPanelProducts, 4);
             this.FlowLayoutPanelProducts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FlowLayoutPanelProducts.Location = new System.Drawing.Point(3, 33);
